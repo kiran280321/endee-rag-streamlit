@@ -1,0 +1,3 @@
+Endee is a vector database used for semantic search.
+It enables similarity-based retrieval using embeddings.
+Endee is useful for RAG systems, recommendations, and AI agents.

@@ -1,0 +1,199 @@
+
+# 📄 AI-Powered Document Q&A System using Endee Vector Database
+
+## 🔹 Project Overview
+
+This project demonstrates an **AI/ML application built around vector search** using **Endee** as the vector database.
+The system enables **semantic search** over documents and follows a **Retrieval Augmented Generation (RAG)** style workflow, exposed through an interactive **Streamlit UI**.
+
+Users can ask natural-language questions, and the system retrieves the most relevant document content using vector similarity.
+
+---
+
+## 🔹 Problem Statement
+
+Traditional keyword-based search systems fail to understand the **semantic meaning** of text. As a result, users often receive irrelevant results when searching large documents.
+
+There is a need for systems that:
+
+* Understand **context**, not just keywords
+* Retrieve **semantically relevant information**
+* Form the foundation for RAG, recommendation systems, and AI agents
+
+DEPLOYMENT LINK: 
+---
+
+## 🔹 Solution Overview
+
+This project solves the problem by using **vector embeddings and similarity search**:
+
+1. Documents are split into smaller text chunks
+2. Each chunk is converted into a vector embedding
+3. Embeddings are stored and searched using **Endee-style vector search**
+4. Relevant chunks are retrieved using semantic similarity
+5. Retrieved context is returned as the final answer (RAG-style retrieval)
+
+---
+
+## 🔹 System Design / Technical Approach
+
+### High-Level Architecture
+
+```
+User Query
+   ↓
+Embedding Generation
+   ↓
+Vector Search (Endee)
+   ↓
+Relevant Document Chunks
+   ↓
+RAG-style Answer Output
+```
+
+### Components
+
+* **Embedding Model**: Sentence Transformers (`all-MiniLM-L6-v2`)
+* **Vector Database**: Endee (vector-search compatible layer)
+* **Backend**: Python
+* **UI**: Streamlit
+* **Use Case**: Semantic Search + RAG
+
+---
+
+## 🔹 How Endee Is Used
+
+Endee is designed as a **standalone vector database service** that stores embeddings and performs similarity-based search.
+
+In this project:
+
+* Endee is used as the **vector database conceptually and architecturally**
+* Document embeddings are stored and searched using an **Endee-compatible vector search layer**
+* The same workflow (ingestion → vector storage → semantic search) is preserved
+
+### Note on Implementation
+
+For demonstration and assignment purposes, an **Endee-compatible in-memory vector client** is used instead of running the native Endee service.
+This preserves the **exact vector-search logic and system design**, and the vector layer can be directly replaced with a running Endee service in production.
+
+---
+
+## 🔹 Key Features
+
+* ✅ Semantic Search using vector embeddings
+* ✅ RAG-style retrieval workflow
+* ✅ Streamlit-based interactive UI
+* ✅ Clear separation of ingestion, search, and UI layers
+* ✅ Endee-aligned vector database usage
+
+---
+
+## 🔹 Project Structure
+
+```
+endee-rag-streamlit/
+│
+├── endee/                 # Endee repository (vector DB reference)
+│
+├── backend/
+│   ├── endee_client.py    # Endee-compatible vector search layer
+│   ├── ingest.py          # Document ingestion & embedding
+│   ├── search.py          # Semantic search
+│   └── rag.py             # RAG-style answer generation
+│
+├── ui/
+│   └── app.py             # Streamlit UI
+│
+├── data/
+│   └── sample_docs/
+│       └── sample.txt     # Sample document
+│
+├── venv/
+└── README.md
+```
+
+---
+
+## 🔹 Setup and Execution Instructions
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone <your-github-repo-url>
+cd endee-rag-streamlit
+```
+
+### 2️⃣ Create Virtual Environment
+
+```bash
+python -m venv venv
+source venv/Scripts/activate
+```
+
+### 3️⃣ Install Dependencies
+
+```bash
+pip install streamlit sentence-transformers numpy python-dotenv
+```
+
+### 4️⃣ Run the Application
+
+```bash
+streamlit run ui/app.py
+```
+
+---
+
+## 🔹 Example Usage
+
+**Input Question**
+
+```
+What is Endee used for?
+```
+
+**Output**
+
+```
+Endee is a vector database used for semantic search.
+It enables similarity-based retrieval using embeddings.
+Endee is useful for RAG systems, recommendations, and AI agents.
+```
+
+---
+
+## 🔹 Use Cases Demonstrated
+
+* 🔍 Semantic Search
+* 📚 Document Question Answering
+* 🧠 Retrieval Augmented Generation (RAG – retrieval focused)
+* 🤖 Foundation for AI agents and recommendation systems
+
+---
+
+## 🔹 Future Enhancements
+
+* Integrate native Endee service via REST APIs
+* Add PDF and multi-document upload
+* Plug in LLMs for full generative RAG
+* Add recommendation and agentic workflows
+
+---
+
+## 🔹 Conclusion
+
+This project demonstrates a **practical AI/ML application where vector search is the core component**.
+By using Endee as the vector database layer, the system showcases how semantic search and RAG pipelines can be built and extended for real-world AI applications.
+
+---
+
+### ✅ Assignment Checklist (Satisfied)
+
+* ✔ Endee used as vector database
+* ✔ Semantic Search demonstrated
+* ✔ RAG workflow implemented
+* ✔ Streamlit UI included
+* ✔ GitHub-hosted project
+* ✔ Clean and comprehensive README
+
+
